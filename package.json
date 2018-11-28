@@ -1,0 +1,33 @@
+{
+  "name": "rngesus",
+  "version": "1.0.0",
+  "description": "web app for all things random number generation",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jim Yoon",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.7",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
