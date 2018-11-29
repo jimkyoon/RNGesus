@@ -1,30 +1,42 @@
 const logicController = {};
 
-logicController.coinFlip = () => {
+logicController.coinFlip = (req, res, next) => {
+  const returnObj = {
+    message: 'Your coin flip result was',
+  };
   const result = Math.floor(Math.random() * Math.floor(2));
-  if (result === 0) return { message: 'Your coin flip result was', result: 'Tails' };
-  if (result === 1) return { message: 'Your coin flip result was', result: 'Heads' };
+  if (result === 0) {
+    returnObj.result = 'Tails';
+    res.status(200).json(returnObj);
+  }
+  if (result === 1) {
+    returnObj.result = 'Heads';
+    res.status(200).json(returnObj);
+  }
 };
 
-logicController.diceRoll = (sides) => {
+logicController.diceRoll = (req, res, next) => {
+  const { sides } = req.body;
   const diceMessage = `Your D${sides} rolled a`;
   const result = Math.floor(Math.random() * Math.floor(sides)) + 1;
   const returnObj = {};
   returnObj.message = diceMessage;
   returnObj.result = result;
-  return returnObj;
+  res.status(200).json(returnObj);
 };
 
-logicController.pickANumber = (num) => {
+logicController.pickANumber = (req, res, next) => {
+  const { num } = req.body;
   const numMessage = `The number picked between 1 and ${num} was`;
   const result = Math.floor(Math.random() * Math.floor(num)) + 1;
   const returnObj = {};
   returnObj.message = numMessage;
   returnObj.result = result;
-  return returnObj;
+  res.status(200).json(returnObj);
 }
 
-logicController.lottery = (regMax, megaMax) => {
+logicController.lottery = (req, res, next) => {
+  const { regMax, megaMax } = req.body;
   // the object to return
   const result = {};
   // the message for the object
@@ -49,7 +61,7 @@ logicController.lottery = (regMax, megaMax) => {
   lottoNums.push(Math.floor(Math.random() * (megaMax - 1 + 1) + 1).toString());
   result.message = lottoMessage;
   result.result = lottoNums;
-  return result;
+  res.status(200).json(result);
 };
 
 module.exports = logicController;

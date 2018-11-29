@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import Wrapper from './containers/MainContainer.jsx';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    return (
+    return(
       <div>
-        <h1>Hello World!</h1>
+        <Wrapper/>
       </div>
     )
   }
