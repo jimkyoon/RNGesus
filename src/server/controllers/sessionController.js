@@ -1,5 +1,5 @@
 // require the model
-const sessionModel = require('../models/sessionModel');
+const Session = require('../models/sessionModel');
 // cookie controller for setting cookies
 const cookieController = require('../util/cookieController');
 
@@ -14,6 +14,10 @@ sessionController.index = (req, res, next) => {
 sessionController.startSession = async (req, res, next) => {
   const newSession = new Session({ cookieId: res.locals.id });
   await newSession.save();
+};
+
+sessionController.random = (req, res, next) => {
+
 };
 
 module.exports = sessionController;

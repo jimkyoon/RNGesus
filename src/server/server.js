@@ -37,6 +37,9 @@ app.post('/signup', userController.signup);
 // login form sent here
 app.post('/login', userController.login);
 
+// after login, go to the random section
+app.get('/random', sessionController.random);
+
 // random number generator
 // coinflip
 app.get('/random/coinflip', logicController.coinFlip);
