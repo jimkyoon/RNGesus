@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 // require controllers
 const sessionController = require('./controllers/sessionController');
 const userController = require('./controllers/userController');
@@ -15,6 +16,7 @@ const app = express();
 const PORT = 3000;
 
 // app uses
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -37,18 +39,15 @@ app.post('/signup', userController.signup);
 // login form sent here
 app.post('/login', userController.login);
 
-// after login, go to the random section
-app.get('/random', sessionController.random);
-
 // random number generator
 // coinflip
 app.get('/random/coinflip', logicController.coinFlip);
 // dice rolls
-app.get('/random/dice', logicController.diceRoll);
+app.post('/random/dice', logicController.diceRoll);
 // pick a random number
-app.get('/random/picknum', logicController.pickANumber);
+app.post('/random/picknum', logicController.pickANumber);
 // lottery
-app.get('/random/lotto', logicController.lottery);
+app.post('/random/lotto', logicController.lottery);
 // history
 app.get('/history', userController.getHistory);
 

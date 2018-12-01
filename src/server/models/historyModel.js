@@ -12,9 +12,9 @@ const Schema = mongoose.Schema;
 //   },
 // );
 
-const sessionSchema = new Schema({
-  cookieId: { type: String, required: true },
-  createdAt: { type: Date, expires: 30, default: Date.now },
+const historySchema = new Schema({
+  userId: { type: String, required: true, unique: true },
+  history: { type: Array },
 });
 
-module.exports = mongoose.model('Session', sessionSchema);
+module.exports = mongoose.model('History', historySchema);
