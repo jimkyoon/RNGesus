@@ -1,20 +1,19 @@
-// require controllers for session and cookie
 const cookieController = require('../util/cookieController');
 const sessionController = require('../controllers/sessionController');
-// require the model for user
+
 const User = require('../models/userModel');
 
 const userController = {};
 
-userController.signup = async (req, res, next) => {
+userController.signup = (req, res, next) => {
   const { username, password } = req.body;
   const newUser = new User({ username: username, password: password });
-  await newUser.save((err, user) => {
+  newUser.save((err, user) => {
     if (err) return res.status(400).json(err);
     res.locals.id = user._id;
     cookieController.setSSIDCookie(req, res);
     sessionController.startSession(req, res);
-    res.status(200).json(user);
+    return res.status(200).json(user);
   });
 };
 

@@ -9,20 +9,20 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  diceRoll: (event) => {
-    dispatch(actions.diceRoll(event));
-  },
-  setSides: (event) => {
-    dispatch(actions.setSides(event));
-  }
+  // diceRoll: (event) => {
+  //   dispatch(actions.diceRoll(event));
+  // },
+  // setSides: (event) => {
+  //   dispatch(actions.setSides(event));
+  // }
 });
 
 const Diceroll = (props) => {
   return (
     <div>
       <label htmlFor="diceSide">Number of Dice Sides: </label>
-      <input id="diceSide" type="text" onChange={props.setSides} />
-      <button onClick={props.diceRoll}>ROLL DICE</button>
+      {/* <input id="diceSide" type="text" onChange={props.setSides} /> */}
+      {/* <button onClick={props.diceRoll}>ROLL DICE</button> */}
     </div>
   )
 };

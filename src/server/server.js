@@ -1,18 +1,16 @@
-// require modules
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// require controllers
+
 const sessionController = require('./controllers/sessionController');
 const userController = require('./controllers/userController');
 const logicController = require('./controllers/logicController');
+const cookieController = require('./util/cookieController');
 
-// assign app to express
 const app = express();
 
-// port number
 const PORT = 3000;
 
 // app uses
@@ -48,7 +46,7 @@ app.post('/random/dice', logicController.diceRoll);
 app.post('/random/picknum', logicController.pickANumber);
 // lottery
 app.post('/random/lotto', logicController.lottery);
-// history
+// history ***WIP***
 app.get('/history', userController.getHistory);
 
 // start server with port

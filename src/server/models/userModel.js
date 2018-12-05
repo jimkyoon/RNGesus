@@ -1,19 +1,9 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+
 const Schema = mongoose.Schema;
 
-// database connection
-// dotenv for database info
-// require('dotenv').config();
-// // mongoose connection
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
-//   (err) => {
-//     if (err) console.log(err);
-//     else console.log('Connected to the database!');
-//   },
-// );
-
 const SALT_WORK_FACTOR = 10;
-const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },

@@ -1,6 +1,5 @@
-// require the model
 const Session = require('../models/sessionModel');
-// cookie controller for setting cookies
+
 const cookieController = require('../util/cookieController');
 
 const sessionController = {};
