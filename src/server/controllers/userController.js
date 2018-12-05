@@ -11,8 +11,10 @@ userController.signup = (req, res, next) => {
   newUser.save((err, user) => {
     if (err) return res.status(400).json(err);
     res.locals.id = user._id;
-    cookieController.setSSIDCookie(req, res);
-    sessionController.startSession(req, res);
+    next();
+    next();
+    // cookieController.setSSIDCookie(req, res);
+    // sessionController.startSession(req, res);
     return res.status(200).json(user);
   });
 };
@@ -27,8 +29,10 @@ userController.login = (req, res, next) => {
       if (err) return res.status(400).json({ loginErr: err });
       if (isMatch) {
         res.locals.id = result._id;
-        cookieController.setSSIDCookie(req, res);
-        sessionController.startSession(req, res);
+        next();
+        next();
+        // cookieController.setSSIDCookie(req, res);
+        // sessionController.startSession(req, res);
         return res.status(200).json({ message: 'You are signed on!' });
       } else {
         return res.json({ error: 'Password did not match!'});

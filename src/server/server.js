@@ -33,9 +33,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true },
 // main page
 app.get('/', sessionController.index);
 // signup form sent here
-app.post('/signup', userController.signup);
+app.post('/signup', userController.signup, cookieController.setSSIDCookie, sessionController.startSession);
 // login form sent here
-app.post('/login', userController.login);
+app.post('/login', userController.login, cookieController.setSSIDCookie, sessionController.startSession);
 
 // random number generator
 // coinflip
